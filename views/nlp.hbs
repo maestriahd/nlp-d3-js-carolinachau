@@ -7,9 +7,11 @@
 <!-- carga desde el servidor de D3 la librería -->
 <!-- cabe anotar que esta podría estar alojada localmente en la carpeta -->
 <!-- public del proyecto -->
+
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script type="text/javascript">
+
 (function() {
   // map tomado de p5.js
   function map(n, start1, stop1, start2, stop2) {
@@ -20,8 +22,8 @@
     // selecciona la división donde se inyectará el SVG
     var svg = d3.select('#viz')
       .append('svg') // agrega un elemento SVG
-      .attr('width', 400) // al SVG le agrega el atributo ancho de 400px
-      .attr('height', 200) // al SVG le agrega el atributo alto de 200px
+      .attr('width', 600) // al SVG le agrega el atributo ancho de 400px
+      .attr('height', 800) // al SVG le agrega el atributo alto de 200px
 
     var elem = svg.selectAll('g') // selecciona todos los elementos `g` (grupos)
       .data(data) // enlaza los datos
@@ -29,7 +31,7 @@
     var elemEnter = elem.enter()
         .append('g') // agrega un grupo
         .attr('transform', function(d,i){ // aplica una transformación al elemento
-          return "translate("+(80*i+40)+", 80)" // calcula la posción relativo a
+          return "translate(40," +(80*i+40)+")" // calcula la posción relativo a
                                                 // los datos
         })
 

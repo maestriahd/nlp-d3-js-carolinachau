@@ -10,8 +10,10 @@ const fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res) {
   // obtiene un texto aleatorio de discursos presidenciales
-  var txt = fs.readFileSync(__dirname+'/manifesto.txt', "utf8");
+  //  var txt = fs.readFileSync(__dirname+'/manifesto.txt', "utf8");
   // var txt = corpus.sotu.random();
+
+  var txt = fs.readFileSync (__dirname+'/Hamlet.txt', 'utf8' )
 
   // entrega el texto al motor de NLP
   var r = nlp(txt);
@@ -24,6 +26,9 @@ router.get('/', function(req, res) {
 
   // extrae los sustantivos
   var nouns = r.nouns();
+  nouns.unique();
+
+  console.log(people.out('array'));
 
   // hace el render de la vista entregando el texto, la lista de personas
   // y sustantivos
